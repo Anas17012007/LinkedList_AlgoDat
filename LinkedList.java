@@ -82,3 +82,151 @@ class LinkedList {
         System.out.println(data + " is not present in the linked list.");
     }
 }
+class vehicle {
+   void start(){}
+   void stop(){}
+   void acclerate(int speed){}
+   void brake(int speed){}
+   void addFuel(int fuel){}
+}
+class Motorcycle extends vehicle {
+   int speed;
+   int fuel;
+   boolean isRunning;
+   @Override 
+    public void start() {
+    this.speed = 30;
+    this.fuel = 5;
+    this.isRunning = true;
+        System.out.println("Motorcycle started");
+    }
+    @Override 
+    public void acclerate(int newSpeed) {
+        if (!isRunning) {
+            System.out.println("Motorcycle is not running.");
+            return;
+        }else if (fuel <= 0) {
+            System.out.println("Motorcycle is out of fuel.");
+            return;
+        } else {
+            this.speed += newSpeed;
+            this.fuel -= 1;
+            System.out.println("Motorcycle speed up to: " + speed);
+        }
+       
+    }
+    @Override
+    public void brake(int newSpeed) {
+        if (!isRunning) {
+            System.out.println("Motorcycle is not running.");
+            return;
+        } else {
+            this.speed -= newSpeed;
+            if (this.speed < 0) {
+                this.speed *= 0.7;
+            }
+            System.out.println("Motorcycle slowed down to: " + speed);
+        }
+    }
+    @Override
+    public void addFuel(int newFuel) {
+        this.fuel += newFuel;
+        System.out.println("Motorcycle fuel level: " + fuel);
+    }
+    @Override
+    public void stop() {
+        this.speed = 0;
+        this.isRunning = false;
+        System.out.println("Motorcycle stopped");
+    }
+
+}
+class Bicycle extends vehicle {
+    int speed;
+    boolean isRunning;
+    @Override
+    public void start() {
+        this.speed = 10;
+        this.isRunning = true;
+        System.out.println("Bicycle started");
+    }
+    @Override
+    public void acclerate(int newSpeed) {
+        if (!isRunning) {
+            System.out.println("Bicycle is not running.");
+            return;
+        } else {
+            this.speed += newSpeed;
+            System.out.println("Bicycle speed up to: " + speed);
+        }
+    }
+    @Override
+    public void brake(int newSpeed) {
+        if (!isRunning) {
+            System.out.println("Bicycle is not running.");
+            return;
+        } else {
+            this.speed -= newSpeed;
+            if (this.speed < 0) {
+                this.speed *= 0.7;
+            }
+            System.out.println("Bicycle slowed down to: " + speed);
+        }
+    }
+    @Override
+    public void stop() {
+        this.speed = 0;
+        this.isRunning = false;
+        System.out.println("Bicycle stopped");
+    }
+}
+class Car extends vehicle {
+    int speed;
+    int fuel;
+    boolean isRunning;
+    @Override
+    public void start() {
+        this.speed = 20;
+        this.fuel = 10;
+        this.isRunning = true;
+        System.out.println("Car started");
+    }
+    @Override
+    public void acclerate(int newSpeed) {
+        if (!isRunning) {
+            System.out.println("Car is not running.");
+            return;
+        } else if (fuel <= 0) {
+            System.out.println("Car is out of fuel.");
+            return;
+        } else {
+            this.speed += newSpeed;
+            this.fuel -= 1;
+            System.out.println("Car speed up to: " + speed);
+        }
+    }
+    @Override
+    public void brake(int newSpeed) {
+        if (!isRunning) {
+            System.out.println("Car is not running.");
+            return;
+        } else {
+            this.speed -= newSpeed;
+            if (this.speed < 0) {
+                this.speed *= 0.7;
+            }
+            System.out.println("Car slowed down to: " + speed);
+        }
+    }
+    @Override
+    public void addFuel(int newFuel) {
+        this.fuel += newFuel;
+        System.out.println("Car fuel level: " + fuel);
+    }
+    @Override
+    public void stop() {
+        this.speed = 0;
+        this.isRunning = false;
+        System.out.println("Car stopped");
+    }
+}
